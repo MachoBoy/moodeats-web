@@ -4,11 +4,11 @@ Marketing splash page and legal documents for the [mood eats](https://moodeats.i
 
 ## Pages
 
-| Path | File | Purpose |
-|------|------|---------|
-| `/` | `index.html` | Splash / coming soon |
-| `/privacy` | `privacy.html` | Privacy Policy |
-| `/terms` | `terms.html` | Terms & Conditions |
+| Path       | File           | Purpose              |
+| ---------- | -------------- | -------------------- |
+| `/`        | `index.html`   | Splash / coming soon |
+| `/privacy` | `privacy.html` | Privacy Policy       |
+| `/terms`   | `terms.html`   | Terms & Conditions   |
 
 ## Stack
 

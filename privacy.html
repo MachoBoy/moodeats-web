@@ -353,12 +353,15 @@
             <p>
                 To provide local weather information that improves your food
                 recommendations, the Application accesses your approximate
-                location. When weather features are used, your approximate
-                coordinates are sent to our weather data provider, Open-Meteo,
-                to retrieve current weather conditions. These coordinates are
-                transmitted without any account identifier and are not linked to
-                your identity. The Application itself does not store your
-                location data.
+                location. When you request a recommendation, your approximate
+                coordinates are sent to two third-party providers: Open-Meteo,
+                to retrieve current weather conditions, and BigDataCloud, to
+                convert your coordinates into a city name (a process known as
+                reverse geocoding). Your coordinates themselves are not stored
+                by the Application. The resulting city is recorded together with
+                your account to power features such as personalized insights and
+                your Mood Map. You can delete this data at any time by deleting
+                your account.
             </p>
             <p>
                 The Application uses Artificial Intelligence (AI) technologies
@@ -386,9 +389,9 @@
             <div class="pii-card">
                 <p>
                     Email, name, user ID, mood inputs, food preferences, saved
-                    recommendations, platform tap history, device information,
-                    subscription status, transaction identifiers, and purchase
-                    history.
+                    recommendations, city (approximate location), platform tap
+                    history, device information, subscription status,
+                    transaction identifiers, and purchase history.
                 </p>
             </div>
             <p>
@@ -464,6 +467,14 @@
                         target="_blank"
                         rel="noopener"
                         >Open-Meteo (Weather)</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://www.bigdatacloud.com/privacy-and-cookie-policy"
+                        target="_blank"
+                        rel="noopener"
+                        >BigDataCloud (Location / Reverse Geocoding)</a
                     >
                 </li>
             </ul>

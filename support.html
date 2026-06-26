@@ -44,6 +44,45 @@
                 margin: 0 auto;
                 padding: 64px 24px 80px;
             }
+            .nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 56px;
+            }
+            .logo {
+                font-size: 20px;
+                font-weight: 800;
+                letter-spacing: -0.02em;
+                color: var(--ink);
+                text-decoration: none;
+                display: inline-flex;
+                align-items: baseline;
+                gap: 4px;
+            }
+            .logo em {
+                font-style: italic;
+                font-weight: 700;
+                color: var(--ink-faint);
+            }
+            .nav-links {
+                display: flex;
+                gap: 24px;
+                font-size: 14px;
+                font-weight: 500;
+            }
+            .nav-links a {
+                color: var(--ink-faint);
+                text-decoration: none;
+                transition: color 0.15s ease;
+            }
+            .nav-links a:hover {
+                color: var(--ink);
+            }
+            .nav-links a.active {
+                color: var(--ink);
+                font-weight: 600;
+            }
             header {
                 margin-bottom: 48px;
             }
@@ -205,6 +244,9 @@
                 .wrap {
                     padding: 44px 18px 64px;
                 }
+                .nav {
+                    margin-bottom: 40px;
+                }
                 h1 {
                     font-size: 28px;
                 }
@@ -222,6 +264,15 @@
     </head>
     <body>
         <div class="wrap">
+            <nav class="nav">
+                <a href="/" class="logo">mood <em>eats</em></a>
+                <div class="nav-links">
+                    <a href="/privacy">Privacy</a>
+                    <a href="/terms">Terms</a>
+                    <a href="/support" class="active">Support</a>
+                </div>
+            </nav>
+
             <header>
                 <p class="eyebrow">Support</p>
                 <h1>Help with mood eats</h1>

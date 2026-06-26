@@ -9,6 +9,7 @@ Marketing splash page and legal documents for the [mood eats](https://moodeats.i
 | `/`        | `index.html`   | Splash / coming soon |
 | `/privacy` | `privacy.html` | Privacy Policy       |
 | `/terms`   | `terms.html`   | Terms & Conditions   |
+| `/support` | `support.html` | Support / FAQ        |
 
 ## Stack
 

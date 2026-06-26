@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Support · mood eats</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta
+            name="description"
+            content="Support and help for mood eats. Find answers to common questions or get in touch."
+        />
+        <style>
+            :root {
+                --bg: #f7f2ec;
+                --surface: #ffffff;
+                --ink: #2c2c2a;
+                --ink-soft: #5f5e5a;
+                --ink-faint: #9b9a95;
+                --line: #e8e5dd;
+                --accent: #1a1a1a;
+                --radius: 16px;
+                --font:
+                    -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+                    'SF Pro Display', 'Helvetica Neue', Helvetica, Arial,
+                    sans-serif;
+            }
+            * {
+                box-sizing: border-box;
+            }
+            html {
+                -webkit-text-size-adjust: 100%;
+            }
+            body {
+                margin: 0;
+                background: var(--bg);
+                color: var(--ink);
+                font-family: var(--font);
+                line-height: 1.65;
+                font-size: 17px;
+                -webkit-font-smoothing: antialiased;
+            }
+            .wrap {
+                max-width: 680px;
+                margin: 0 auto;
+                padding: 64px 24px 80px;
+            }
+            header {
+                margin-bottom: 48px;
+            }
+            .eyebrow {
+                font-size: 13px;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: var(--ink-faint);
+                font-weight: 500;
+                margin: 0 0 8px;
+            }
+            h1 {
+                font-size: 34px;
+                font-weight: 700;
+                letter-spacing: -0.02em;
+                margin: 0 0 16px;
+                line-height: 1.15;
+            }
+            .lede {
+                font-size: 18px;
+                color: var(--ink-soft);
+                margin: 0;
+                max-width: 52ch;
+            }
+            h2 {
+                font-size: 14px;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                color: var(--ink-faint);
+                font-weight: 500;
+                margin: 56px 0 16px;
+            }
+            .faq {
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                overflow: hidden;
+            }
+            details {
+                border-bottom: 1px solid var(--line);
+            }
+            details:last-child {
+                border-bottom: none;
+            }
+            summary {
+                list-style: none;
+                cursor: pointer;
+                padding: 20px 24px;
+                font-weight: 500;
+                font-size: 17px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 16px;
+                transition: background 0.15s ease;
+            }
+            summary:hover {
+                background: #fbf8f4;
+            }
+            summary::-webkit-details-marker {
+                display: none;
+            }
+            summary .icon {
+                flex-shrink: 0;
+                width: 20px;
+                height: 20px;
+                position: relative;
+                transition: transform 0.2s ease;
+            }
+            summary .icon::before,
+            summary .icon::after {
+                content: '';
+                position: absolute;
+                background: var(--ink-faint);
+                border-radius: 2px;
+            }
+            summary .icon::before {
+                top: 9px;
+                left: 2px;
+                width: 16px;
+                height: 2px;
+            }
+            summary .icon::after {
+                top: 2px;
+                left: 9px;
+                width: 2px;
+                height: 16px;
+            }
+            details[open] summary .icon {
+                transform: rotate(45deg);
+            }
+            .answer {
+                padding: 0 24px 22px;
+                color: var(--ink-soft);
+                font-size: 16px;
+            }
+            .answer p {
+                margin: 0 0 12px;
+            }
+            .answer p:last-child {
+                margin-bottom: 0;
+            }
+            .answer a {
+                color: var(--ink);
+                text-decoration: underline;
+                text-underline-offset: 2px;
+            }
+            .contact {
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                padding: 28px 24px;
+                text-align: center;
+            }
+            .contact p {
+                margin: 0 0 6px;
+                color: var(--ink-soft);
+                font-size: 16px;
+            }
+            .contact a.email {
+                display: inline-block;
+                margin-top: 8px;
+                font-size: 19px;
+                font-weight: 600;
+                color: var(--ink);
+                text-decoration: none;
+            }
+            .contact a.email:hover {
+                text-decoration: underline;
+                text-underline-offset: 3px;
+            }
+            .note {
+                font-size: 14px;
+                color: var(--ink-faint);
+                margin-top: 14px;
+            }
+            footer {
+                margin-top: 56px;
+                padding-top: 28px;
+                border-top: 1px solid var(--line);
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px 24px;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 13px;
+                color: var(--ink-faint);
+            }
+            footer nav a {
+                color: var(--ink-soft);
+                text-decoration: none;
+                margin-right: 18px;
+            }
+            footer nav a:hover {
+                text-decoration: underline;
+                text-underline-offset: 2px;
+            }
+            @media (max-width: 480px) {
+                .wrap {
+                    padding: 44px 18px 64px;
+                }
+                h1 {
+                    font-size: 28px;
+                }
+                .lede {
+                    font-size: 17px;
+                }
+            }
+            @media (prefers-reduced-motion: reduce) {
+                summary .icon,
+                summary {
+                    transition: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <header>
+                <p class="eyebrow">Support</p>
+                <h1>Help with mood eats</h1>
+                <p class="lede">
+                    Got a question or running into something? Start with the
+                    answers below, or reach out and we'll get back to you.
+                </p>
+            </header>
+
+            <h2>Frequently asked</h2>
+            <div class="faq">
+                <details>
+                    <summary>
+                        What is mood eats?<span
+                            class="icon"
+                            aria-hidden="true"
+                        ></span>
+                    </summary>
+                    <div class="answer">
+                        <p>
+                            mood eats helps you decide what to eat based on how
+                            you feel. Pick a mood, and it suggests dishes
+                            matched to your mood, the weather where you are, and
+                            what you're craving. Every pick comes with a recipe
+                            to cook at home or a way to find it nearby.
+                        </p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>
+                        How do the recommendations work?<span
+                            class="icon"
+                            aria-hidden="true"
+                        ></span>
+                    </summary>
+                    <div class="answer">
+                        <p>
+                            When you choose a mood, mood eats considers that
+                            mood along with your local weather and any cuisine
+                            or dietary filters you've set, then suggests five
+                            dishes. The more you use the app and rate what you
+                            get, the better it learns your taste over time.
+                        </p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>
+                        Can I set dietary needs or pick a cuisine?<span
+                            class="icon"
+                            aria-hidden="true"
+                        ></span>
+                    </summary>
+                    <div class="answer">
+                        <p>
+                            Yes. On the home screen you can add a cuisine you're
+                            in the mood for and set your dietary preferences.
+                            Your recommendations adjust to fit what you choose.
+                        </p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>
+                        What does mood eats Pro include?<span
+                            class="icon"
+                            aria-hidden="true"
+                        ></span>
+                    </summary>
+                    <div class="answer">
+                        <p>
+                            mood eats is free to start. Pro is an optional
+                            subscription that unlocks the full experience. You
+                            can manage or cancel your subscription anytime
+                            through your Apple ID settings on your device.
+                        </p>
+                        <p>
+                            Subscriptions are billed through your Apple account,
+                            and renew automatically unless cancelled at least 24
+                            hours before the end of the current period.
+                        </p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>
+                        How do I manage or cancel my subscription?<span
+                            class="icon"
+                            aria-hidden="true"
+                        ></span>
+                    </summary>
+                    <div class="answer">
+                        <p>
+                            Subscriptions are handled by Apple. On your iPhone,
+                            open Settings, tap your name at the top, then tap
+                            Subscriptions to view, change, or cancel mood eats
+                            Pro.
+                        </p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>
+                        How do I delete my account and data?<span
+                            class="icon"
+                            aria-hidden="true"
+                        ></span>
+                    </summary>
+                    <div class="answer">
+                        <p>
+                            You can delete your account from within the app,
+                            which removes your account and associated data. If
+                            you have any trouble, email us and we'll help.
+                        </p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>
+                        How is my data handled?<span
+                            class="icon"
+                            aria-hidden="true"
+                        ></span>
+                    </summary>
+                    <div class="answer">
+                        <p>
+                            We collect only what's needed to make
+                            recommendations work, in line with our privacy
+                            policy. You can read the full details in our
+                            <a href="https://moodeats.io/privacy"
+                                >Privacy Policy</a
+                            >.
+                        </p>
+                    </div>
+                </details>
+            </div>
+
+            <h2>Still need help?</h2>
+            <div class="contact">
+                <p>Email us and we'll get back to you as soon as we can.</p>
+                <a class="email" href="mailto:privacy@moodeats.io"
+                    >privacy@moodeats.io</a
+                >
+                <p class="note">We aim to respond within a few business days.</p>
+            </div>
+
+            <footer>
+                <div>© 2026 mood eats · Made in Port Moody, BC</div>
+                <nav>
+                    <a href="/privacy">Privacy</a>
+                    <a href="/terms">Terms</a>
+                    <a href="/support">Support</a>
+                    <a href="mailto:support@moodeats.io">Contact</a>
+                </nav>
+            </footer>
+        </div>
+    </body>
+</html>

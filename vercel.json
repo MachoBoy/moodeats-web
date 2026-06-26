@@ -11,6 +11,11 @@
             "source": "/terms.html",
             "destination": "/terms",
             "permanent": true
+        },
+        {
+            "source": "/support.html",
+            "destination": "/support",
+            "permanent": true
         }
     ]
 }

@@ -12,7 +12,7 @@
         <meta property="og:title" content="mood eats" />
         <meta
             property="og:description"
-            content="Eat how you feel. Coming soon to iOS."
+            content="Eat how you feel. Now on iOS."
         />
         <meta property="og:type" content="website" />
         <style>
@@ -283,6 +283,13 @@
                 align-items: center;
                 gap: 8px;
                 max-width: 100%;
+                text-decoration: none;
+                color: inherit;
+                transition: border-color 0.15s ease;
+            }
+
+            .cta-card:hover {
+                border-color: var(--ink-mute);
             }
 
             .cta-status {
@@ -325,6 +332,21 @@
                 font-size: 13px;
                 color: var(--ink-mute);
                 margin-top: 4px;
+            }
+
+            .app-store-badge-link {
+                display: block;
+                width: fit-content;
+                margin-top: 16px;
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 8px;
+            }
+
+            .app-store-badge {
+                display: block;
+                height: 40px;
+                width: auto;
             }
 
             /* Footer */
@@ -423,14 +445,33 @@
                     <em>mood eats</em> finds the meal that matches it.
                 </p>
 
-                <div class="cta-card">
+                <a
+                    class="cta-card"
+                    href="https://apps.apple.com/ca/app/mood-eats/id6762584116"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Download mood eats on the App Store"
+                >
                     <div class="cta-status">
                         <span class="pulse"></span>
-                        <span>Coming soon</span>
+                        <span>Now available</span>
                     </div>
                     <div class="cta-text">iOS App Store</div>
-                    <div class="cta-meta">Launching 2026</div>
-                </div>
+                    <div class="cta-meta">Published July 15, 2026</div>
+                </a>
+                <a
+                    class="app-store-badge-link"
+                    href="https://apps.apple.com/ca/app/mood-eats/id6762584116"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Download mood eats on the App Store"
+                >
+                    <img
+                        class="app-store-badge"
+                        src="./assets/App_Store_Badge.svg"
+                        alt="Download on the App Store"
+                    />
+                </a>
             </div>
         </main>
 

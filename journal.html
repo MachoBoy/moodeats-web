@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-NQBT9F9TNW"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'G-NQBT9F9TNW');
+        </script>
+        <title>Build journal · mood eats</title>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://moodeats.io/journal" />
+        <meta
+            name="description"
+            content="A build journal for mood eats. What I ran into, and why I chose what I chose."
+        />
+        <meta property="og:title" content="Build journal · mood eats" />
+        <meta
+            property="og:description"
+            content="A build journal for mood eats. What I ran into, and why I chose what I chose."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://moodeats.io/journal" />
+        <meta property="og:site_name" content="mood eats" />
+        <meta property="og:image" content="https://moodeats.io/assets/og.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="600" />
+        <meta property="og:image:type" content="image/png" />
+        <meta
+            property="og:image:alt"
+            content="mood eats — eat how you feel"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://moodeats.io/assets/og.png" />
+        <meta name="twitter:title" content="Build journal · mood eats" />
+        <meta
+            name="twitter:description"
+            content="A build journal for mood eats. What I ran into, and why I chose what I chose."
+        />
+        <style>
+            :root {
+                --bg: #f7f2ec;
+                --surface: #ffffff;
+                --ink: #2c2c2a;
+                --ink-soft: #5f5e5a;
+                --ink-faint: #9b9a95;
+                --line: #e8e5dd;
+                --hover: #fbf8f4;
+                --radius: 16px;
+                --font:
+                    -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+                    'SF Pro Display', 'Helvetica Neue', Helvetica, Arial,
+                    sans-serif;
+            }
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --bg: #1a1614;
+                    --surface: #221d1a;
+                    --ink: #faf7f2;
+                    --ink-soft: #d4c9ba;
+                    --ink-faint: #8e8580;
+                    --line: #2e2722;
+                    --hover: #261f1b;
+                }
+            }
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                background: var(--bg);
+                color: var(--ink);
+                font-family: var(--font);
+                line-height: 1.65;
+                font-size: 17px;
+                -webkit-font-smoothing: antialiased;
+            }
+            .wrap {
+                max-width: 680px;
+                margin: 0 auto;
+                padding: 64px 24px 80px;
+            }
+            .nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 56px;
+            }
+            .logo {
+                font-size: 20px;
+                font-weight: 800;
+                letter-spacing: -0.02em;
+                color: var(--ink);
+                text-decoration: none;
+                display: inline-flex;
+                align-items: baseline;
+                gap: 4px;
+            }
+            .logo em {
+                font-style: italic;
+                font-weight: 700;
+                color: var(--ink-faint);
+            }
+            .nav-links {
+                display: flex;
+                gap: 24px;
+                font-size: 14px;
+                font-weight: 500;
+            }
+            .nav-links a {
+                color: var(--ink-faint);
+                text-decoration: none;
+            }
+            .nav-links a:hover,
+            .nav-links a.active {
+                color: var(--ink);
+            }
+            .eyebrow {
+                font-size: 13px;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: var(--ink-faint);
+                font-weight: 500;
+                margin: 0 0 8px;
+            }
+            h1 {
+                font-size: 34px;
+                font-weight: 700;
+                letter-spacing: -0.02em;
+                margin: 0 0 16px;
+                line-height: 1.15;
+            }
+            .lede {
+                font-size: 18px;
+                color: var(--ink-soft);
+                margin: 0 0 40px;
+                max-width: 52ch;
+            }
+            .lede a {
+                color: var(--ink);
+            }
+            .entries {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                overflow: hidden;
+            }
+            .entries > li + li {
+                border-top: 1px solid var(--line);
+            }
+            .entry {
+                display: block;
+                padding: 22px 24px 24px;
+            }
+            .entry time {
+                display: block;
+                font-size: 13px;
+                color: var(--ink-faint);
+            }
+            .entry-title {
+                display: block;
+                margin: 2px 0 0;
+                font-size: 17px;
+                font-weight: 600;
+                letter-spacing: -0.01em;
+            }
+            .entry .tags {
+                margin: 8px 0 0;
+                font-size: 13px;
+                line-height: 1.4;
+                color: var(--ink-faint);
+            }
+            .entry .tags span + span {
+                margin-left: 8px;
+            }
+            .entry p {
+                margin: 10px 0 0;
+                color: var(--ink-soft);
+                font-size: 16px;
+            }
+            .entry ul {
+                margin: 10px 0 0;
+                padding-left: 1.15em;
+                color: var(--ink-soft);
+                font-size: 16px;
+            }
+            .entry li + li {
+                margin-top: 6px;
+            }
+            footer {
+                margin-top: 56px;
+                padding-top: 28px;
+                border-top: 1px solid var(--line);
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px 24px;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 13px;
+                color: var(--ink-faint);
+            }
+            footer nav a {
+                color: var(--ink-soft);
+                text-decoration: none;
+                margin-right: 18px;
+            }
+            footer nav a:hover {
+                text-decoration: underline;
+                text-underline-offset: 2px;
+            }
+            footer nav a[aria-current='page'] {
+                color: var(--ink);
+            }
+            @media (max-width: 480px) {
+                .wrap {
+                    padding: 44px 18px 64px;
+                }
+                .nav {
+                    margin-bottom: 40px;
+                }
+                h1 {
+                    font-size: 28px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <nav class="nav">
+                <a href="/" class="logo">mood <em>eats</em></a>
+                <div class="nav-links">
+                    <a href="/privacy">Privacy</a>
+                    <a href="/terms">Terms</a>
+                    <a href="/support">Support</a>
+                </div>
+            </nav>
+
+            <main>
+                <p class="eyebrow">Journal</p>
+                <h1>Build journal</h1>
+                <p class="lede">
+                    What I ran into while building mood eats, and why I chose
+                    what I chose. Some of the dates are approximate. Version
+                    history is in the <a href="/notes">release notes</a>.
+                </p>
+                <ul class="entries">
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-04-15">April 15, 2026</time>
+                            <h2 class="entry-title">Why a dish fits a mood</h2>
+                            <p class="tags">
+                                <span>#mood</span>
+                                <span>#recommendations</span>
+                            </p>
+                            <p>
+                                The early recommendations sounded fine. They
+                                just never said why a dish fit how you felt,
+                                and I didn't want an app that was guessing.
+                            </p>
+                            <p>
+                                I read four papers on mood and food and turned
+                                what they actually found into rules in the
+                                prompt. Each dish now has a role: comfort,
+                                uplift, or discovery. The mix shifts with how
+                                intense the mood is.
+                            </p>
+                            <p>
+                                The obvious comfort answer is often a trap.
+                                High-sugar, high-GI food feels good, then
+                                leaves you worse. I started calling the
+                                alternative smart comfort: food that soothes
+                                without the crash.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-05-13">May 13, 2026</time>
+                            <h2 class="entry-title">
+                                Writing the policy before launch
+                            </h2>
+                            <p class="tags">
+                                <span>#privacy</span>
+                                <span>#launch</span>
+                            </p>
+                            <p>
+                                mood eats asks how you feel. That's personal,
+                                and people should be able to see what happens
+                                to it.
+                            </p>
+                            <p>
+                                I wrote the privacy policy and the terms
+                                myself, with Canadian privacy law (PIPEDA) in
+                                mind, and published them on moodeats.io. The
+                                App Store privacy label lists only what the app
+                                really collects.
+                            </p>
+                            <p>
+                                Writing it forced decisions I would have put
+                                off: what to collect, what to skip, and how
+                                someone deletes their account.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-06-10">June 10, 2026</time>
+                            <h2 class="entry-title">
+                                The cheaper model wasn't cheaper
+                            </h2>
+                            <p class="tags">
+                                <span>#ai</span>
+                                <span>#prompt</span>
+                            </p>
+                            <p>
+                                I first tuned the prompt for a smaller, cheaper
+                                model. The answers were fast. The reasoning was
+                                thin, and the reasoning is the product.
+                            </p>
+                            <p>
+                                I switched to Claude Sonnet and cut the prompt
+                                by about 40%. The academic citations weren't
+                                helping the model. Every dish now has a fit
+                                score from 0 to 100, a plain reason, and a name
+                                you can actually search for.
+                            </p>
+                            <p>
+                                A cheaper model isn't cheaper if people don't
+                                trust the result. That's where mood eats has to
+                                compete.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-07-28">July 28, 2026</time>
+                            <h2 class="entry-title">
+                                Uber Eats, and a country bug
+                            </h2>
+                            <p class="tags">
+                                <span>#delivery</span>
+                                <span>#ubereats</span>
+                            </p>
+                            <p>
+                                I added a Delivery button that opens Uber Eats
+                                with the dish ready to search. It worked for me
+                                in Canada. The link doesn't behave the same way
+                                in every country.
+                            </p>
+                            <p>
+                                The server was already looking up a rough
+                                location for the weather. It now returns the
+                                country code too, and the app uses that to open
+                                the right Uber Eats link.
+                            </p>
+                            <p>
+                                mood eats doesn't place the order. It takes you
+                                to the dish so you don't have to search. I want
+                                that to be obvious in the app, and in any ads.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-08-06">August 6, 2026</time>
+                            <h2 class="entry-title">
+                                The Instagram link that did nothing
+                            </h2>
+                            <p class="tags">
+                                <span>#launch</span>
+                                <span>#instagram</span>
+                            </p>
+                            <p>
+                                I announced the launch on Instagram. People
+                                tapped the App Store link and nothing happened.
+                                Instagram's built-in browser blocks the
+                                redirect Apple uses to open the store.
+                            </p>
+                            <p>
+                                A plain link shortener doesn't help. It still
+                                opens inside Instagram. For now I used a smart
+                                link that pushes people out to the real
+                                browser. Longer term, I want a page on
+                                moodeats.io that notices in-app browsers.
+                            </p>
+                            <p>
+                                Launch week was mostly other people's platforms.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-08-09">August 9, 2026</time>
+                            <h2 class="entry-title">
+                                A free week, not a cheaper price
+                            </h2>
+                            <p class="tags">
+                                <span>#subscription</span>
+                                <span>#trial</span>
+                            </p>
+                            <p>
+                                Pro is a monthly subscription. Asking for money
+                                before someone has felt the app work is a hard
+                                sell.
+                            </p>
+                            <p>
+                                I added a one-week free trial for new
+                                subscribers. The paywall checks whether you're
+                                eligible and shows the matching message, so
+                                nobody is promised a trial they can't get. The
+                                launch promo shows at most once a day, based on
+                                your local date, not server time.
+                            </p>
+                            <p>
+                                Testing the trial needed a separate staging
+                                build. The usual debug setup can't simulate a
+                                free trial at all.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-08-16">August 16, 2026</time>
+                            <h2 class="entry-title">Leaving the price alone</h2>
+                            <p class="tags">
+                                <span>#pricing</span>
+                                <span>#analytics</span>
+                            </p>
+                            <p>
+                                I worried the price was too high. I also had no
+                                conversion data, so I was about to change it on
+                                a hunch.
+                            </p>
+                            <p>
+                                I left the price until the free trial produces
+                                real numbers. What I did instead was design one
+                                analytics table for the moments that matter:
+                                hitting the daily limit, asking for a
+                                recommendation, and seeing the paywall.
+                            </p>
+                            <p>
+                                “Is the price wrong?” and “I don't have data”
+                                are different problems. I needed the second one
+                                first.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-09-12">September 12, 2026</time>
+                            <h2 class="entry-title">
+                                Mood, or the food's mood?
+                            </h2>
+                            <p class="tags">
+                                <span>#mood</span>
+                                <span>#product</span>
+                            </p>
+                            <p>
+                                One person read “mood” as the character of the
+                                food. Spicy, cozy. Not how they feel. I thought
+                                about adding a Taste mode next to the mood
+                                chips.
+                            </p>
+                            <p>
+                                Not yet. Mood is what makes this app different,
+                                and a Taste mode could quietly replace it. If I
+                                build it later, I'll still ask how you feel:
+                                before the recommendation, if you want, and
+                                after the meal as a short check-in.
+                            </p>
+                            <p>
+                                A second thing showed up while I was looking at
+                                this. Almost nobody answered the question after
+                                a meal. It lived on the Saved screen, which few
+                                people open. I'll ask right after you tap Dine
+                                Out, Delivery, or Recipe, and follow up gently
+                                the next time you open the app.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-09-13">September 13, 2026</time>
+                            <h2 class="entry-title">
+                                What counts as a good recommendation
+                            </h2>
+                            <p class="tags">
+                                <span>#metrics</span>
+                                <span>#recommendations</span>
+                            </p>
+                            <p>
+                                One person's feedback isn't a pattern. Before I
+                                build more on a hunch, I wanted a way to tell
+                                whether a recommendation actually worked. Three
+                                numbers, after each one:
+                            </p>
+                            <ul>
+                                <li>
+                                    <strong>Intent rate.</strong> Did you show
+                                    interest?
+                                </li>
+                                <li>
+                                    <strong>Action rate.</strong> Did you go eat
+                                    it, through Dine Out, Delivery, or Recipe?
+                                    This is the main one.
+                                </li>
+                                <li>
+                                    <strong>Rejection rate.</strong> Did you ask
+                                    for something different?
+                                </li>
+                            </ul>
+                            <p>
+                                I almost counted “show me more like these” as a
+                                success. It's a soft no. Getting the
+                                definitions right matters more than collecting
+                                more events.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-09-16">September 16, 2026</time>
+                            <h2 class="entry-title">
+                                Mood wasn't steering anything
+                            </h2>
+                            <p class="tags">
+                                <span>#mood</span>
+                                <span>#prompt</span>
+                            </p>
+                            <p>
+                                Using the app at home in Port Moody, I kept
+                                seeing the same dishes whether I picked Tired,
+                                Happy, or Stressed. Mood wasn't doing anything.
+                            </p>
+                            <p>
+                                The prompt was pairing places with specific
+                                dishes, so the model treated it like a lookup
+                                table. This city, this cuisine, this dish.
+                                Location was overpowering mood.
+                            </p>
+                            <p>
+                                Mood picks the dishes first now. Location only
+                                filters afterward. Each of the nine moods has
+                                its own sensory signature: texture, temperature,
+                                flavor. Two different moods in the same setting
+                                should rarely share more than two of the five
+                                dishes. To check, I ran every mood three times,
+                                27 runs, and measured the overlap before and
+                                after the change.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-09-24">September 24, 2026</time>
+                            <h2 class="entry-title">The Easiest Healing</h2>
+                            <p class="tags">
+                                <span>#video</span>
+                                <span>#launch</span>
+                            </p>
+                            <p>
+                                Screenshots don't show the feeling the app is
+                                for. That Friday night when you're too tired to
+                                decide.
+                            </p>
+                            <p>
+                                I made a 37-second vertical video about Kelly.
+                                She gets home exhausted, tries the app without
+                                expecting much, and is quietly surprised. I
+                                generated the character scenes with AI video
+                                tools, recorded the app myself, and edited it
+                                in DaVinci Resolve. First time I'd used it.
+                                It's on Instagram, TikTok, and LinkedIn, each
+                                with its own tracking link.
+                            </p>
+                            <p>
+                                The story only works if the app earns the
+                                reaction. Kelly doesn't start out convinced.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-09-27">September 27, 2026</time>
+                            <h2 class="entry-title">Not Android. Not yet.</h2>
+                            <p class="tags">
+                                <span>#ios</span>
+                                <span>#android</span>
+                            </p>
+                            <p>
+                                Should I build an Android version to reach more
+                                people? No. The question right now is whether
+                                people keep coming back on iOS. Splitting a
+                                small group across two platforms would muddy
+                                the numbers and split my time. I'm building
+                                this on my own.
+                            </p>
+                            <p>
+                                Every event I track now records the platform.
+                                If Android happens later, I can compare the two
+                                from the first day.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-10-01">October 1, 2026</time>
+                            <h2 class="entry-title">
+                                Can we find the dish nearby?
+                            </h2>
+                            <p class="tags">
+                                <span>#places</span>
+                                <span>#recommendations</span>
+                            </p>
+                            <p>
+                                A good recommendation is useless if you can't
+                                get it. I wanted to show where a dish is
+                                available near you, right now.
+                            </p>
+                            <p>
+                                I looked at the Google Places API. The pricing
+                                changed in 2025. The old monthly credit became
+                                free quotas per feature tier. Searching for
+                                places sits in a higher tier, and asking for
+                                even one premium field bills the whole request
+                                at that tier. So the shape is one search per
+                                recommendation, and details only when you tap.
+                            </p>
+                            <p>
+                                Before I write the real code, I'm testing
+                                whether a search by dish name returns anything
+                                useful. Easy, mid, and niche dishes, in
+                                Downtown Vancouver and the Tri-Cities. I'll
+                                call it good enough if at least 70% of the
+                                tests return three or more relevant places in
+                                the top five.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-10-04">October 4, 2026</time>
+                            <h2 class="entry-title">
+                                A recommendation you can actually eat
+                            </h2>
+                            <p class="tags">
+                                <span>#product</span>
+                                <span>#recommendations</span>
+                            </p>
+                            <p>
+                                I use mood eats myself, and it still felt like
+                                it lacked an edge. I compared it with asking a
+                                general chatbot. That gave me restaurant names
+                                and hours that looked real. Some of those
+                                details can be made up.
+                            </p>
+                            <p>
+                                A recommendation only matters if you can
+                                actually eat it. Nearby and open, or cookable
+                                with what's in the fridge. That's the plan: a
+                                feasibility filter on top of mood. First,
+                                nearby restaurants that are open. Then a fridge
+                                feature for ingredients you already have.
+                            </p>
+                            <p>
+                                I thought about couples deciding dinner
+                                together. I ended up writing for the person I
+                                already am. A young professional in Metro
+                                Vancouver, tired after work, deciding dinner
+                                alone. The two numbers I'll watch are the
+                                action rate after a recommendation, and how
+                                many people come back each week.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-10-08">October 8, 2026</time>
+                            <h2 class="entry-title">
+                                Moving the model, slowly
+                            </h2>
+                            <p class="tags">
+                                <span>#ai</span>
+                                <span>#model</span>
+                            </p>
+                            <p>
+                                Recommendations have been running on Claude
+                                Sonnet 4.5. I looked at what's available now.
+                                Sonnet 5.5 is stronger and costs roughly a
+                                third less than 4.5. The top tier costs about
+                                twice as much, which this task doesn't need.
+                                The smallest tier is cheaper, but the reasoning
+                                is the part I can't cheap out on.
+                            </p>
+                            <p>
+                                I'll move to Sonnet 5.5 after a side-by-side of
+                                10 to 15 ordinary moods, to see if anything
+                                breaks. The bigger lever is still measurement.
+                                Once action rate is tracked, I can tell whether
+                                a model change actually helped.
+                            </p>
+                        </article>
+                    </li>
+                </ul>
+            </main>
+
+            <footer>
+                <div>© 2026 mood eats · Made in Port Moody, BC</div>
+                <nav>
+                    <a href="/privacy">Privacy</a>
+                    <a href="/terms">Terms</a>
+                    <a href="/support">Support</a>
+                    <a href="/notes">Notes</a>
+                    <a href="/journal" aria-current="page">Journal</a>
+                    <a
+                        href="mailto:support@moodeats.io"
+                        data-ga-event="email_click"
+                        >Contact</a
+                    >
+                </nav>
+            </footer>
+        </div>
+        <script>
+            window.va =
+                window.va ||
+                function () {
+                    (window.vaq = window.vaq || []).push(arguments);
+                };
+        </script>
+        <script src="/analytics.js"></script>
+        <script defer src="/_vercel/insights/script.js"></script>
+    </body>
+</html>

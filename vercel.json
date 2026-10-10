@@ -16,6 +16,16 @@
             "source": "/support.html",
             "destination": "/support",
             "permanent": true
+        },
+        {
+            "source": "/notes.html",
+            "destination": "/notes",
+            "permanent": true
+        },
+        {
+            "source": "/journal.html",
+            "destination": "/journal",
+            "permanent": true
         }
     ]
 }

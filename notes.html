@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-NQBT9F9TNW"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'G-NQBT9F9TNW');
+        </script>
+        <title>Release notes · mood eats</title>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://moodeats.io/notes" />
+        <meta
+            name="description"
+            content="Release notes for the mood eats iOS app. What changed, version by version."
+        />
+        <meta property="og:title" content="Release notes · mood eats" />
+        <meta
+            property="og:description"
+            content="Release notes for the mood eats iOS app. What changed, version by version."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://moodeats.io/notes" />
+        <meta property="og:site_name" content="mood eats" />
+        <meta property="og:image" content="https://moodeats.io/assets/og.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="600" />
+        <meta property="og:image:type" content="image/png" />
+        <meta
+            property="og:image:alt"
+            content="mood eats — eat how you feel"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://moodeats.io/assets/og.png" />
+        <meta name="twitter:title" content="Release notes · mood eats" />
+        <meta
+            name="twitter:description"
+            content="Release notes for the mood eats iOS app. What changed, version by version."
+        />
+        <style>
+            :root {
+                --bg: #f7f2ec;
+                --surface: #ffffff;
+                --ink: #2c2c2a;
+                --ink-soft: #5f5e5a;
+                --ink-faint: #9b9a95;
+                --line: #e8e5dd;
+                --hover: #fbf8f4;
+                --radius: 16px;
+                --font:
+                    -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+                    'SF Pro Display', 'Helvetica Neue', Helvetica, Arial,
+                    sans-serif;
+            }
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --bg: #1a1614;
+                    --surface: #221d1a;
+                    --ink: #faf7f2;
+                    --ink-soft: #d4c9ba;
+                    --ink-faint: #8e8580;
+                    --line: #2e2722;
+                    --hover: #261f1b;
+                }
+            }
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                background: var(--bg);
+                color: var(--ink);
+                font-family: var(--font);
+                line-height: 1.65;
+                font-size: 17px;
+                -webkit-font-smoothing: antialiased;
+            }
+            .wrap {
+                max-width: 680px;
+                margin: 0 auto;
+                padding: 64px 24px 80px;
+            }
+            .nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 56px;
+            }
+            .logo {
+                font-size: 20px;
+                font-weight: 800;
+                letter-spacing: -0.02em;
+                color: var(--ink);
+                text-decoration: none;
+                display: inline-flex;
+                align-items: baseline;
+                gap: 4px;
+            }
+            .logo em {
+                font-style: italic;
+                font-weight: 700;
+                color: var(--ink-faint);
+            }
+            .nav-links {
+                display: flex;
+                gap: 24px;
+                font-size: 14px;
+                font-weight: 500;
+            }
+            .nav-links a {
+                color: var(--ink-faint);
+                text-decoration: none;
+            }
+            .nav-links a:hover,
+            .nav-links a.active {
+                color: var(--ink);
+            }
+            .eyebrow {
+                font-size: 13px;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: var(--ink-faint);
+                font-weight: 500;
+                margin: 0 0 8px;
+            }
+            h1 {
+                font-size: 34px;
+                font-weight: 700;
+                letter-spacing: -0.02em;
+                margin: 0 0 16px;
+                line-height: 1.15;
+            }
+            .lede {
+                font-size: 18px;
+                color: var(--ink-soft);
+                margin: 0 0 40px;
+                max-width: 52ch;
+            }
+            .lede a {
+                color: var(--ink);
+            }
+            .entries {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                overflow: hidden;
+            }
+            .entries > li + li {
+                border-top: 1px solid var(--line);
+            }
+            .entry {
+                display: block;
+                padding: 20px 24px;
+            }
+            .entry time {
+                display: block;
+                font-size: 13px;
+                color: var(--ink-faint);
+            }
+            .entry-title {
+                display: block;
+                margin: 2px 0 0;
+                font-size: 17px;
+                font-weight: 600;
+                letter-spacing: -0.01em;
+            }
+            .entry-summary {
+                display: block;
+                margin: 8px 0 0;
+                color: var(--ink-soft);
+                font-size: 16px;
+            }
+            .changes {
+                margin: 10px 0 0;
+                padding-left: 1.15em;
+                color: var(--ink-soft);
+                font-size: 16px;
+            }
+            .changes li + li {
+                margin-top: 6px;
+            }
+            footer {
+                margin-top: 56px;
+                padding-top: 28px;
+                border-top: 1px solid var(--line);
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px 24px;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 13px;
+                color: var(--ink-faint);
+            }
+            footer nav a {
+                color: var(--ink-soft);
+                text-decoration: none;
+                margin-right: 18px;
+            }
+            footer nav a:hover {
+                text-decoration: underline;
+                text-underline-offset: 2px;
+            }
+            footer nav a[aria-current='page'] {
+                color: var(--ink);
+            }
+            @media (max-width: 480px) {
+                .wrap {
+                    padding: 44px 18px 64px;
+                }
+                .nav {
+                    margin-bottom: 40px;
+                }
+                h1 {
+                    font-size: 28px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <nav class="nav">
+                <a href="/" class="logo">mood <em>eats</em></a>
+                <div class="nav-links">
+                    <a href="/privacy">Privacy</a>
+                    <a href="/terms">Terms</a>
+                    <a href="/support">Support</a>
+                </div>
+            </nav>
+
+            <main>
+                <p class="eyebrow">Notes</p>
+                <h1>Release notes</h1>
+                <p class="lede">
+                    What changed in mood eats, one version at a time. How the
+                    app decides is in the <a href="/journal">journal</a>.
+                </p>
+                <ul class="entries">
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-09-19">September 19, 2026</time>
+                            <h2 class="entry-title">Version 1.1.0</h2>
+                            <ul class="changes">
+                                <li>
+                                    Discover redesigned Food Insights with
+                                    personalized food patterns.
+                                </li>
+                                <li>
+                                    Get smarter recommendations based on your
+                                    ratings and preferences.
+                                </li>
+                                <li>
+                                    See nearby availability for recommended
+                                    dishes.
+                                </li>
+                                <li>
+                                    Enjoy improved dietary guidance, navigation,
+                                    and overall reliability.
+                                </li>
+                            </ul>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-08-17">August 17, 2026</time>
+                            <h2 class="entry-title">Version 1.0.3</h2>
+                            <ul class="changes">
+                                <li>
+                                    Try mood eats Pro free with a limited-time
+                                    introductory offer.
+                                </li>
+                                <li>
+                                    Fixed minor bugs, improved subscription
+                                    handling, and overall reliability.
+                                </li>
+                            </ul>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-08-06">August 6, 2026</time>
+                            <h2 class="entry-title">Version 1.0.2</h2>
+                            <ul class="changes">
+                                <li>
+                                    Discover nearby dishes on Uber Eats directly
+                                    from recommendations and food history.
+                                </li>
+                                <li>
+                                    Get smarter recommendations based on the
+                                    time of day and daylight conditions.
+                                </li>
+                                <li>
+                                    Tap “More like these” to receive fresh picks
+                                    using the same preferences.
+                                </li>
+                                <li>
+                                    Improved subscription handling, loading
+                                    experience, and overall reliability.
+                                </li>
+                            </ul>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-07-20">July 20, 2026</time>
+                            <h2 class="entry-title">Version 1.0.1</h2>
+                            <p class="entry-summary">
+                                Minor improvements and optimizations.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-07-15">July 15, 2026</time>
+                            <h2 class="entry-title">Version 1.0</h2>
+                            <p class="entry-summary">First release.</p>
+                        </article>
+                    </li>
+                </ul>
+            </main>
+
+            <footer>
+                <div>© 2026 mood eats · Made in Port Moody, BC</div>
+                <nav>
+                    <a href="/privacy">Privacy</a>
+                    <a href="/terms">Terms</a>
+                    <a href="/support">Support</a>
+                    <a href="/notes" aria-current="page">Notes</a>
+                    <a href="/journal">Journal</a>
+                    <a
+                        href="mailto:support@moodeats.io"
+                        data-ga-event="email_click"
+                        >Contact</a
+                    >
+                </nav>
+            </footer>
+        </div>
+        <script>
+            window.va =
+                window.va ||
+                function () {
+                    (window.vaq = window.vaq || []).push(arguments);
+                };
+        </script>
+        <script src="/analytics.js"></script>
+        <script defer src="/_vercel/insights/script.js"></script>
+    </body>
+</html>

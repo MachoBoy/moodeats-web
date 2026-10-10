@@ -3,6 +3,18 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-NQBT9F9TNW"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'G-NQBT9F9TNW');
+        </script>
         <title>Support · mood eats</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://moodeats.io/support" />
@@ -451,7 +463,10 @@
             <h2>Still need help?</h2>
             <div class="contact">
                 <p>Email us and we'll get back to you as soon as we can.</p>
-                <a class="email" href="mailto:privacy@moodeats.io"
+                <a
+                    class="email"
+                    href="mailto:privacy@moodeats.io"
+                    data-ga-event="email_click"
                     >privacy@moodeats.io</a
                 >
                 <p class="note">We aim to respond within a few business days.</p>
@@ -463,7 +478,11 @@
                     <a href="/privacy">Privacy</a>
                     <a href="/terms">Terms</a>
                     <a href="/support">Support</a>
-                    <a href="mailto:support@moodeats.io">Contact</a>
+                    <a
+                        href="mailto:support@moodeats.io"
+                        data-ga-event="email_click"
+                        >Contact</a
+                    >
                 </nav>
             </footer>
         </div>
@@ -474,6 +493,7 @@
                     (window.vaq = window.vaq || []).push(arguments);
                 };
         </script>
+        <script src="/analytics.js"></script>
         <script defer src="/_vercel/insights/script.js"></script>
     </body>
 </html>

@@ -3,6 +3,18 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-NQBT9F9TNW"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'G-NQBT9F9TNW');
+        </script>
         <title>Terms & Conditions — mood eats</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://moodeats.io/terms" />
@@ -603,7 +615,9 @@
                 If you have any questions or suggestions about the Terms and
                 Conditions, please do not hesitate to contact the Service
                 Provider at
-                <a href="mailto:support@moodeats.io">support@moodeats.io</a>.
+                <a href="mailto:support@moodeats.io" data-ga-event="email_click"
+                    >support@moodeats.io</a
+                >.
             </p>
 
             <footer>
@@ -623,6 +637,7 @@
                     (window.vaq = window.vaq || []).push(arguments);
                 };
         </script>
+        <script src="/analytics.js"></script>
         <script defer src="/_vercel/insights/script.js"></script>
     </body>
 </html>

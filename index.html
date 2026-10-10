@@ -3,6 +3,18 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-NQBT9F9TNW"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'G-NQBT9F9TNW');
+        </script>
         <title>mood eats — eat how you feel</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://moodeats.io/" />
@@ -490,6 +502,7 @@
                     target="_blank"
                     rel="noopener"
                     aria-label="Download mood eats on the App Store"
+                    data-ga-event="app_store_card_click"
                 >
                     <div class="cta-status">
                         <span class="pulse"></span>
@@ -504,6 +517,7 @@
                     target="_blank"
                     rel="noopener"
                     aria-label="Download mood eats on the App Store"
+                    data-ga-event="app_store_click"
                 >
                     <img
                         class="app-store-badge"
@@ -520,7 +534,9 @@
                 <a href="/privacy">Privacy</a>
                 <a href="/terms">Terms</a>
                 <a href="/support">Support</a>
-                <a href="mailto:support@moodeats.io">Contact</a>
+                <a href="mailto:support@moodeats.io" data-ga-event="email_click"
+                    >Contact</a
+                >
             </div>
         </footer>
         <script>
@@ -530,6 +546,7 @@
                     (window.vaq = window.vaq || []).push(arguments);
                 };
         </script>
+        <script src="/analytics.js"></script>
         <script defer src="/_vercel/insights/script.js"></script>
     </body>
 </html>

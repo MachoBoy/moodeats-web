@@ -615,6 +615,53 @@
                     </li>
                     <li>
                         <article class="entry">
+                            <time datetime="2026-09-30">September 30, 2026</time>
+                            <h2 class="entry-title">
+                                The clock was overriding the ask
+                            </h2>
+                            <p class="tags">
+                                <span>#recommendations</span>
+                                <span>#product</span>
+                            </p>
+                            <p>
+                                After 9pm the prompt decided it was a late meal
+                                and pulled heavy food down, even when you'd
+                                just picked Treat Me. That's a direct request.
+                                The time of day is only a guess from the clock.
+                                The guess shouldn't win. I left the limit on
+                                how much food, and let the style through.
+                                Nourishing, Balanced, or Treat Me now sticks,
+                                including on "more like these." That one had
+                                been rebuilding the request from the response,
+                                and the response doesn't repeat every field, so
+                                the style, the time of day, and the location
+                                were quietly dropped.
+                            </p>
+                            <p>
+                                The fit scores had the same problem in another
+                                costume. Almost everything landed between 85
+                                and 95, so a rule about not giving the top
+                                score to the wrong dish had nothing to hold.
+                                The bands are anchored now, and a set piled at
+                                the top gets flagged.
+                            </p>
+                            <p>
+                                I also took the nearby badge off. It could
+                                never talk about the dish. There's no menu data
+                                in that lookup, so a match only meant a
+                                restaurant of that cuisine was inside the
+                                radius. With a cuisine filter, all five cards
+                                said the same thing. If the request failed, the
+                                card said there was no match, instead of saying
+                                it hadn't checked. It could hold the
+                                recommendation for up to 8 seconds. I'd rather
+                                show nothing than a sure answer that isn't
+                                true.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
                             <time datetime="2026-10-01">October 1, 2026</time>
                             <h2 class="entry-title">
                                 Can we find the dish nearby?
@@ -709,6 +756,118 @@
                                 breaks. The bigger lever is still measurement.
                                 Once action rate is tracked, I can tell whether
                                 a model change actually helped.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-10-11">October 11, 2026</time>
+                            <h2 class="entry-title">Half the wait</h2>
+                            <p class="tags">
+                                <span>#ai</span>
+                                <span>#model</span>
+                            </p>
+                            <p>
+                                I ran the comparison I'd been putting off.
+                                Production was on Sonnet 4.6. Sonnet 5.5, low
+                                effort, nine moods, three runs each. The
+                                average wait went from 12.5 seconds to 7.1.
+                                Moods separated more, 1.23 to 1.89 on the
+                                overlap score. Neither side had a hard
+                                failure. Medium effort didn't beat low, so I
+                                shipped low.
+                            </p>
+                            <p>
+                                5.5 rejects any temperature that isn't the
+                                default, so that setting is gone. It also
+                                wrote names like "Galbi Jjim (Korean Braised
+                                Short Ribs)." A few crossed the length limit
+                                and failed the whole request. I asked for the
+                                name you'd actually see on a menu. No "with…",
+                                no parentheses. One long name can now be 64
+                                characters without throwing the set out. The
+                                prompt still asks for 48.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-10-14">October 14, 2026</time>
+                            <h2 class="entry-title">
+                                A lookup that's allowed to fail
+                            </h2>
+                            <p class="tags">
+                                <span>#places</span>
+                                <span>#product</span>
+                            </p>
+                            <p>
+                                The badge I removed was never going to become
+                                honest. That data has no menus. What shipped
+                                looks the dish up with Google Places: open
+                                now, within 5 km, food places only. One
+                                search. Details only when you tap, because a
+                                single premium field bills the whole request
+                                at the higher tier. Results stay cached for
+                                10 minutes, and there's a cap per user so one
+                                session can't run the bill up. If nothing is
+                                open, the panel can say so. That's the
+                                failure I wanted. The old one pretended it
+                                had looked.
+                            </p>
+                            <p>
+                                Reminders were the other place I didn't want
+                                to overreach. No push server. Nothing on the
+                                lock screen about how you've been feeling,
+                                and no Pro pitch in the copy. The app
+                                schedules the next seven days on the device
+                                and rebuilds that list whenever you open it.
+                                If you don't open the app for a week, they
+                                stop. Automatic mode sends one a day, before
+                                the meal you actually look up most. Until
+                                there are three of those, it's dinner.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="entry">
+                            <time datetime="2026-10-26">October 26, 2026</time>
+                            <h2 class="entry-title">
+                                See it, but not all at once
+                            </h2>
+                            <p class="tags">
+                                <span>#ai</span>
+                                <span>#product</span>
+                            </p>
+                            <p>
+                                A dish name still asks you to imagine the
+                                plate. Generating a new photo for every
+                                recommendation, for everyone, on the first
+                                day, is how the bill arrives before you know
+                                if the pictures help. A recommendation takes
+                                a cached image when we already have that
+                                dish. Anything missing is made in the
+                                background. The card keeps the cuisine emoji
+                                until the photo shows up, then swaps, with
+                                an AI badge. It shouldn't look like a photo
+                                from the restaurant.
+                            </p>
+                            <p>
+                                The rollout is a percentage, plus a daily
+                                cap. Leave the percentage off and everyone
+                                still gets the emoji. The function only
+                                knows its own host when it runs locally, so
+                                it returns a storage path and the app builds
+                                the public URL. A signed-in user can read
+                                the key, the status, and that path. Not the
+                                rest of the row.
+                            </p>
+                            <p>
+                                The log was a flat list of dishes. It's a
+                                day, then a session, and a session is one
+                                recommendation. The latest stays open.
+                                Older ones fold. Insights leads with the
+                                mood pattern. Recent wins are three of
+                                those photos, and a tap opens the detail.
                             </p>
                         </article>
                     </li>
